@@ -1,4 +1,11 @@
 <h1>Título de la Página</h1>
 
+<div class="rutas">
+  <!--routerLinkActive es para ponerle alguna clase al elemento que está activo-->
+  <a [routerLink]="['/sobre']" routerLinkActive="rutaActiva">Sobre Mi</a>
+  <a [routerLink]="['/informacion']" routerLinkActive="rutaActiva">Información de la Página</a>
+  <a [routerLink]="['/contacto']" routerLinkActive="rutaActiva">Contactanos</a>
+</div>
+
 <!--En esta parte el contenido se reemplaza por la ruta que especifiquemos en el navegador-->
 <router-outlet></router-outlet>
