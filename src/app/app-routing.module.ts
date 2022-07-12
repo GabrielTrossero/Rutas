@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './componentes/about/about.component';
 import { ContactComponent } from './componentes/contact/contact.component';
 import { DetalleEmpleadoComponent } from './componentes/detalle-empleado/detalle-empleado.component';
+import { CurriculumComponent } from './componentes/empleados/curriculum/curriculum.component';
+import { ExperienciaComponent } from './componentes/empleados/experiencia/experiencia.component';
+import { ProyectosComponent } from './componentes/empleados/proyectos/proyectos.component';
 import { InfoComponent } from './componentes/info/info.component';
 
 const routes: Routes = [
@@ -12,7 +15,11 @@ const routes: Routes = [
   {path: 'contacto2', component: ContactComponent}, //podemos reutilizar el componente 
   {path: 'sobre', component: AboutComponent},
   {path: 'about', redirectTo: 'sobre'}, //podemos redirigir a otro componente
-  {path: 'empleados/:empleadoId', component: DetalleEmpleadoComponent},
+  {path: 'empleados/:empleadoId', component: DetalleEmpleadoComponent, children: [
+    {path: 'proyectos', component: ProyectosComponent}, //rutas hijas de empleados
+    {path: 'experiencia', component: ExperienciaComponent}, //se accede como "empleado/122/experiencia"
+    {path: 'curriculum', component: CurriculumComponent},
+  ]},
   {path: "**", redirectTo: 'contacto'}, //ruta por defecto para cuando ponemos una ruta "mal"
 ];
 
