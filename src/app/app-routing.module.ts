@@ -7,10 +7,11 @@ import { CurriculumComponent } from './componentes/empleados/curriculum/curricul
 import { ExperienciaComponent } from './componentes/empleados/experiencia/experiencia.component';
 import { ProyectosComponent } from './componentes/empleados/proyectos/proyectos.component';
 import { InfoComponent } from './componentes/info/info.component';
+import { RandomGuard } from './random.guard';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'informacion'}, //ruta raiz 
-  {path: 'informacion', component: InfoComponent},
+  {path: 'informacion', component: InfoComponent, canActivate: [RandomGuard]}, //filtro aplicado
   {path: 'contacto', component: ContactComponent},
   {path: 'contacto2', component: ContactComponent}, //podemos reutilizar el componente 
   {path: 'sobre', component: AboutComponent},
